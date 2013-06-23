@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Section:
+  = @slide.section_id
+%p
+  %b Title:
+  = @slide.title
+%p
+  %b Content:
+  = @slide.content
+%p
+  %b Image:
+  = @slide.image
+
+= link_to 'Edit', edit_slide_path(@slide)
+\|
+= link_to 'Back', slides_path
