@@ -1,4 +1,6 @@
 ServoWebsite::Application.routes.draw do
+  resources :admins
+
   resources :slides
 
   resources :sections
@@ -7,7 +9,11 @@ ServoWebsite::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'sections#index'
+  
+  match '/admin', to: 'slides#index', via: 'get'
+  match '/admin/edit', to: 'admins#index', via: 'get'
+  match '/admin/edit/new', to: 'admins#new', via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
