@@ -1,5 +1,5 @@
 ServoWebsite::Application.routes.draw do
-  resources :admins
+  resources :users
 
   resources :slides
 
@@ -11,9 +11,9 @@ ServoWebsite::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'sections#index'
   
-  match '/admin', to: 'slides#index', via: 'get'
-  match '/admin/edit', to: 'admins#index', via: 'get'
-  match '/admin/edit/new', to: 'admins#new', via: 'get'
+  # match '/admin', to: 'slides#index', via: 'get'
+  # match '/admin/edit', to: 'admins#index', via: 'get'
+  # match '/admin/edit/new', to: 'admins#new', via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
