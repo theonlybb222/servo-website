@@ -1,4 +1,4 @@
-class SectionsController < ApplicationController
+class Admin::SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 
   # GET /sections
@@ -28,7 +28,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to [:admin, @section], notice: 'Section was successfully created.' }
         format.json { render action: 'show', status: :created, location: @section }
       else
         format.html { render action: 'new' }
