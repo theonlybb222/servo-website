@@ -1,4 +1,4 @@
-class Admin::SlidesController < ApplicationController
+class Admin::SlidesController < AdminController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
 
   # GET /slides

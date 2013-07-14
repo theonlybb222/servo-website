@@ -11,7 +11,7 @@ ServoWebsite::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sections#index'
+  root 'homepage#index'
   
   # match '/admin', to: 'slides#index', via: 'get'
   # match '/admin/edit', to: 'admins#index', via: 'get'
