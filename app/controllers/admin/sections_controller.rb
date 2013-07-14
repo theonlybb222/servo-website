@@ -28,7 +28,11 @@ class Admin::SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
+<<<<<<< HEAD:app/controllers/admin/sections_controller.rb
         format.html { redirect_to [:admin, @section], notice: 'Section was successfully created.' }
+=======
+        format.html { redirect_to admin_sections_path, notice: 'Section was successfully created.' }
+>>>>>>> 53ebb0a97821ef62bcf16d694882db5459e08cec:app/controllers/admin/sections_controller.rb
         format.json { render action: 'show', status: :created, location: @section }
       else
         format.html { render action: 'new' }
