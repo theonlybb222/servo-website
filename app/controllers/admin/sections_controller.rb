@@ -56,7 +56,7 @@ class Admin::SectionsController < ApplicationController
   def destroy
     @section.destroy
     respond_to do |format|
-      format.html { redirect_to sections_url }
+      format.html { redirect_to admin_sections_url }
       format.json { head :no_content }
     end
   end
