@@ -16,9 +16,9 @@
       %td= slide.title
       %td= slide.content
       %td= slide.image
-      %td= link_to 'Show', slide
+      %td= link_to 'Show', admin_slide_path(slide)
       %td= link_to 'Edit', edit_admin_slide_path(slide)
-      %td= link_to 'Destroy', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Destroy', admin_slide_path(slide), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
