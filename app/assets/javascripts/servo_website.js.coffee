@@ -3,7 +3,7 @@ window.ServoWebsite =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: -> ""
 
 $(document).ready ->
   ServoWebsite.initialize()

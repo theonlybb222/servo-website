@@ -1,12 +1,12 @@
 ServoWebsite::Application.routes.draw do
-  
-  resources :sessions
 
   namespace :admin do
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
-    root 'sections#index'
-    resources :sections, :slides, :users
+    root 'sessions#new'
+    get "log_out" => "sessions#destroy", :as => "log_out"
+    get "log_in" => "sessions#new", :as => "log_in"
+    resources :sessions, :sections, :slides, :users
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,8 +15,7 @@ ServoWebsite::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'homepage#index'
   
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
+
   
   # match '/admin', to: 'slides#index', via: 'get'
   # match '/admin/edit', to: 'admins#index', via: 'get'
