@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0.rc2'
 gem 'haml-rails', '~> 0.4'
 gem 'backbone-on-rails'
+gem 'bcrypt-ruby', '~> 3.1.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

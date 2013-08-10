@@ -1,9 +1,5 @@
-Script started on Sun Jul 14 15:12:06 2013
-[?1034hbash-3.2$ Section.first
-bash: Section.first: command not found
-bash-3.2$ Sections.first
-bash: Sections.first: command not found
-bash-3.2$ exit
+Script started on Mon Jul 22 11:41:35 2013
+[?1034hbash-3.2$ exit
 exit
 
-Script done on Sun Jul 14 15:12:18 2013
+Script done on Mon Jul 22 11:41:39 2013

@@ -26,9 +26,12 @@ class Admin::UsersController < AdminController
   def create
     @user = User.new(user_params)
 
+    # @user = User.new(params[:user])
+    # @user.password = params[:password]
+
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to [:admin, @user], notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -42,7 +45,7 @@ class Admin::UsersController < AdminController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to [:admin, @user], notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,9 +59,27 @@ class Admin::UsersController < AdminController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to admin_users_url }
       format.json { head :no_content }
     end
+  end
+  
+  def login
+    @user = User.find_by_email(params[:email])
+    if @user.password == params[:password]
+      give_token
+    else
+      redirect_to admin_sections_url
+    end
+  end
+  
+  # assign them a random one and mail it to them, asking them to change it
+  def forgot_password
+    @user = User.find_by_email(params[:email])
+    random_password = Array.new(10).map { (65 + rand(58)).chr }.join
+    @user.password = random_password
+    @user.save!
+    Mailer.create_and_deliver_password_change(@user, random_password)
   end
 
   private
@@ -69,6 +90,6 @@ class Admin::UsersController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password)
+      params.require(:user).permit(:email, :password)
     end
 end
