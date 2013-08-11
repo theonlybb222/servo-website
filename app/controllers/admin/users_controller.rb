@@ -1,6 +1,5 @@
 class Admin::UsersController < AdminController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user
 
   # GET /users
   # GET /users.json
@@ -62,15 +61,6 @@ class Admin::UsersController < AdminController
     respond_to do |format|
       format.html { redirect_to admin_users_url }
       format.json { head :no_content }
-    end
-  end
-  
-  def login
-    @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
-      give_token
-    else
-      redirect_to admin_sections_url
     end
   end
   

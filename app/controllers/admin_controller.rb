@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  # http_basic_authenticate_with :name => "admin", :password => "password"
   helper_method :current_user
+  before_filter :authenticate_user
   
   def authenticate_user
     unless current_user != nil

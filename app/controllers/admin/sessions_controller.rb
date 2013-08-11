@@ -1,4 +1,6 @@
 class Admin::SessionsController < AdminController
+  skip_before_filter :authenticate_user, :only => [:new, :create, :destroy]
+  
   def new
   end
 
