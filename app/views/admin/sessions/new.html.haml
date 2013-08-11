@@ -1,3 +1,15 @@
+-flash.each do |name, msg|
+  = content_tag :div, msg, :id => "flash_#{name}"
+
+#user_nav
+  -if current_user 
+    .header 
+      Logged in as #{current_user.email}.
+      = link_to "Log out", admin_log_out_path
+  -else
+    .header 
+      = link_to "log in", admin_log_in_path
+
 %h1 Login
 
 = form_tag admin_sessions_path do

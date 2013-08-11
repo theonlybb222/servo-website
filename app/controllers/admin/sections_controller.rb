@@ -1,5 +1,6 @@
 class Admin::SectionsController < AdminController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user
 
   # GET /sections
   # GET /sections.json

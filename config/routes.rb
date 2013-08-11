@@ -3,7 +3,7 @@ ServoWebsite::Application.routes.draw do
   namespace :admin do
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
-    root 'sessions#new'
+    root 'sections#index'
     get "log_out" => "sessions#destroy", :as => "log_out"
     get "log_in" => "sessions#new", :as => "log_in"
     resources :sessions, :sections, :slides, :users

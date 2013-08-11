@@ -15,6 +15,6 @@ class Admin::SessionsController < AdminController
 
   def destroy
     session[:user_id] = nil
-    redirect_to admin_root, :notice => "Logged out!"
+    redirect_to admin_log_in_url, :notice => "Logged out!"
   end
 end

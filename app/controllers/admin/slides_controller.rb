@@ -1,5 +1,6 @@
 class Admin::SlidesController < AdminController
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user
 
   # GET /slides
   # GET /slides.json
